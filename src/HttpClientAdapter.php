@@ -66,8 +66,7 @@ class HttpClientAdapter
         if (!($httpClient instanceof HttpClient)) {
             $this->setDnsResolver($this->dnsResolver);
 
-            $factory = new HttpClientFactory();
-            $httpClient = $factory->create($this->loop, $this->dnsResolver);
+            $httpClient = new HttpClient($this->loop);
         }
 
         $this->httpClient = $httpClient;
